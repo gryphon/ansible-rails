@@ -1,0 +1,27 @@
+---
+- name: 'create deploy user'
+  user: 'name={{ user }} groups="sudo" shell=/bin/bash'
+
+- name: 'add pubkey to deploy user'
+  authorized_key: user={{ user }} 
+                  key="{{ lookup('file', '/Users/gryphon/.ssh/id_rsa.pub') }}"
+
+- name: 'add some sudo to deploy'
+  lineinfile: "dest=/etc/sudoers line='{{ user }} ALL=(ALL) NOPASSWD: /usr/bin/monit' regexp='^{{ user }}' state=present"
+
+- name: 'install mysql client libs'
+  apt: name=libmysqlclient-dev state=present
+
+- name: 'install imagemagick'
+  apt: name=imagemagick state=present
+
+- name: 'install libmagickwand-dev'
+  apt: name=libmagickwand-dev state=present
+
+- name: copy puma monit
+  template: src=monit_puma.conf dest=/etc/monit/conf.d/puma.conf
+  notify: restart monit
+
+- name: copy sidekiq monit
+  template: src=monit_sidekiq.conf dest=/etc/monit/conf.d/sidekiq0.conf
+  notify: restart monit

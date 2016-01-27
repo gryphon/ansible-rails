@@ -1,0 +1,13 @@
+- name: NodeJS | Install ppa key
+  apt_key: id=68576280 url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present
+- name: NodeJS | Remove launchpad ppa
+  apt_repository: repo=ppa:chris-lea/node.js state=absent
+- name: NodeJS | Install ppa
+  apt_repository: repo="{{ item }}"
+  with_items:
+    - "deb https://deb.nodesource.com/{{ nodejs_branch }} {{ ansible_distribution_release }} main"
+    - "deb-src https://deb.nodesource.com/{{ nodejs_branch }} {{ ansible_distribution_release }} main"
+- name: NodeJS | Install package
+  apt: name=nodejs state={{ nodejs_apt_state }}
+- name: 'install bower'
+  npm: name=bower global=yes
