@@ -1,0 +1,7 @@
+---
+- name: 'install monit'
+  apt: name=monit state=present
+
+- name: setup monitrc
+  template: src=monitrc dest=/etc/monit/monitrc
+  notify: restart monit

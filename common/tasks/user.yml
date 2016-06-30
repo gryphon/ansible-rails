@@ -1,0 +1,10 @@
+---
+- name: 'create login user'
+  user: 'name={{ login }} groups="sudo" shell=/bin/bash'
+
+- name: 'add pubkey to login user'
+  authorized_key: user={{ login }}
+                  key="{{ lookup('file', 'login_key') }}"
+
+- name: 'add login user to sudoers'
+  lineinfile: "dest=/etc/sudoers line='{{ login }} ALL=(ALL) NOPASSWD: ALL' regexp='^{{ login }}' state=present"

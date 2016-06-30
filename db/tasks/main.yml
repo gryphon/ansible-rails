@@ -1,0 +1,4 @@
+---
+- include: mysql.yml tags=app
+- include: backup.yml tags=backup
+- include: redis.yml tags=ruby
