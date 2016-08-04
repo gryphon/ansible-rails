@@ -4,7 +4,7 @@
 
 - name: 'add pubkey to login user'
   authorized_key: user={{ login }}
-                  key="{{ lookup('file', 'login_key') }}"
+                  key="{{ lookup('env','HOME') }}/.ssh/id_rsa.pub"
 
 - name: 'add login user to sudoers'
   lineinfile: "dest=/etc/sudoers line='{{ login }} ALL=(ALL) NOPASSWD: ALL' regexp='^{{ login }}' state=present"
