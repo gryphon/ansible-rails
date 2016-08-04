@@ -9,3 +9,8 @@ galaxy_info:
   - name: Ubuntu
     versions:
     - all
+  galaxy_tags:
+    - rails
+    - puma
+dependencies: []
+
