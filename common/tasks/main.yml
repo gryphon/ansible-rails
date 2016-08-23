@@ -2,3 +2,4 @@
 - include: soft.yml tags=soft
 - include: user.yml tags=user
 - include: monit.yml tags=monit
+- include: firewall.yml tags=firewall

@@ -11,3 +11,11 @@
 - name: copy nginx vhost
   template: src=nginx.conf dest=/etc/nginx/sites-enabled/{{ name }}.conf
   notify: restart nginx
+
+- name: configure web firewall
+  ufw: rule={{ item.rule }} port={{ item.port }} proto={{ item.proto }}
+  with_items:
+    - { rule: 'allow', port: '80', proto: 'tcp' }
+    - { rule: 'allow', port: '443', proto: 'tcp' }
+  notify:
+    - restart ufw
