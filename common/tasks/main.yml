@@ -1,4 +1,5 @@
 ---
+- include: options.yml tags=options
 - include: soft.yml tags=soft
 - include: user.yml tags=user
 - include: monit.yml tags=monit

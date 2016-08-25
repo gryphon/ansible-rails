@@ -1,0 +1,12 @@
+---
+- name: add ClientAliveInterval to sshd_config (DigitalOcean issue)
+  lineinfile: dest=/etc/ssh/sshd_config regexp="^ClientAliveInterval "
+    line="ClientAliveInterval 60"
+  sudo_user: root
+  notify: restart ssh
+
+- name: add ClientAliveCountMax to sshd_config (DigitalOcean issue)
+  lineinfile: dest=/etc/ssh/sshd_config regexp="^ClientAliveCountMax "
+    line="ClientAliveCountMax 60"
+  sudo_user: root
+  notify: restart ssh
