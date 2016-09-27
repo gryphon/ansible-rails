@@ -4,3 +4,4 @@
 - include: user.yml tags=user
 - include: monit.yml tags=monit
 - include: firewall.yml tags=firewall
+- include: cron.yml tags=cron

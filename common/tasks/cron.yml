@@ -1,0 +1,3 @@
+---
+- name: 'clean tmp'
+  cron: name="clean tmp" minute="0" hour="0/4" job="0 */4 * * * /usr/bin/find /tmp -type f -mtime +1 -delete"
