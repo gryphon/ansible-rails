@@ -9,7 +9,11 @@
   file: path=/etc/nginx/sites-enabled/default state=absent
 
 - name: copy nginx vhost
-  template: src=nginx.conf dest=/etc/nginx/sites-enabled/{{ name }}.conf
+  template: src=vhost.conf dest=/etc/nginx/sites-enabled/{{ name }}.conf
+  notify: restart nginx
+
+- name: copy nginx conf
+  template: src=nginx.conf dest=/etc/nginx/nginx.conf
   notify: restart nginx
 
 - name: configure web firewall

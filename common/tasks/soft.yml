@@ -9,4 +9,4 @@
   apt: name=git state=present
 
 - name: 'install zip'
-  apt: name=git state=present
+  apt: name=zip state=present
