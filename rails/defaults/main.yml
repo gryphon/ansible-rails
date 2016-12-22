@@ -2,3 +2,4 @@
 # defaults file for ansible-rails
 
 max_body_size: '10m'
+sidekiq_pid: 'sidekiq-0.pid'
