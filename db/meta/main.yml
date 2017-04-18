@@ -13,6 +13,5 @@ galaxy_info:
     - mysql
     - redis
     - backup
-dependencies:
-  - { role: gryphon.common, some_parameter: 3 }
+dependencies: []
 

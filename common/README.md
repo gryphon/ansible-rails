@@ -1,3 +1,13 @@
+MIGRATION TO 2.X GUIDE
+
+1.
+
+ssh_users:
+  - name: user1
+    key: "{{ lookup('file', 'user1.pub') }}"
+
+
+
 Common Ansible Role
 =========
 

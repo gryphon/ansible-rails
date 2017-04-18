@@ -12,6 +12,5 @@ galaxy_info:
   galaxy_tags:
     - rails
     - puma
-dependencies:
-  - { role: gryphon.common, some_parameter: 3 }
+dependencies: []
 
