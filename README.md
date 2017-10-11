@@ -1,6 +1,10 @@
 Rails role
 =========
 
+include this
+    - thefinn93.letsencrypt
+before rails role
+
 Frontend server for Ruby on Rails with rbenv, puma and nginx. Nodejs used for some background.
 
 Requirements
