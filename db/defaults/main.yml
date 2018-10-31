@@ -1,6 +1,7 @@
 ---
 # defaults file for ansible-db
 innodb_buffer_pool_size: "200M"
-innodb_log_file_size: "60M"
+innodb_log_file_size: "120M"
 table_open_cache: 64
 table_open_cache_instances: 8
+mysql_secure_file_priv: "/var/lib/mysql-files"

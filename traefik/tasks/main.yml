@@ -1,0 +1,23 @@
+---
+- name: create config dir
+  file:
+    path: "{{ apps_config_dir }}/traefik"
+    state: directory
+    mode: 0755
+- name: copy mysql config
+  template:
+    src: traefik.toml
+    dest: "{{ apps_config_dir }}/traefik/traefik.toml"
+- name: create ssl dir
+  file:
+    path: "{{ apps_config_dir }}/traefik/ssl"
+    state: directory
+    mode: 0755
+- name: copy ssl cert
+  copy: 
+    src: "{{ ssl_cert_path }}"
+    dest: "{{ apps_config_dir }}/traefik/ssl/server.crt"
+- name: copy ssl key
+  copy: 
+    src: "{{ ssl_key_path }}"
+    dest: "{{ apps_config_dir }}/traefik/ssl/server.key"

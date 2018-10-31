@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Gryphon
-  description: Database server with Mysql, Redis and Backups
+  description: Custom Mysql config provider for docker image
   company: snsk.ru
   license: GNU
   min_ansible_version: 1.2
@@ -11,7 +11,5 @@ galaxy_info:
     - all
   galaxy_tags:
     - mysql
-    - redis
-    - backup
 dependencies: []
 

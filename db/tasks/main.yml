@@ -1,4 +1,10 @@
 ---
-- include: mysql.yml tags=app
-- include: backup.yml tags=backup
-- include: redis.yml tags=ruby
+- name: create mysql config dir
+  file:
+    path: "{{ apps_config_dir }}/mysql"
+    state: directory
+    mode: 0755
+- name: copy mysql config
+  template: 
+    src: my.cnf
+    dest: "{{ apps_config_dir }}/mysql/my.cnf"

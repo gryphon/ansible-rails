@@ -1,0 +1,3 @@
+---
+- name: 'currency refresh cron'
+  cron: name="check dirs" minute="0" hour="1,13" job="/usr/bin/curl http://localhost/admin/currencies/refresh.json > /home/web/refresh.json"
