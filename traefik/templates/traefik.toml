@@ -19,3 +19,15 @@ endpoint = "unix:///var/run/docker.sock"
 domain = "{{ traefik_domain }}"
 watch = true
 exposedByDefault = false
+
+{% if traefik_acme == true %}
+
+[acme]
+email = "{{ traefik_acme_email }}"
+storage = "/acme/acme.json"
+entryPoint = "https"
+onHostRule = true
+[acme.httpChallenge]
+entryPoint = "http"
+
+{% endif %}

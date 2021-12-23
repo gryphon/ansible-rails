@@ -1,7 +1,0 @@
----
-- name: 'install redis server'
-  apt: name=redis-server state=present
-
-- name: copy redis monit
-  template: src=monit_redis.conf dest=/etc/monit/conf.d/redis.conf
-  notify: restart monit

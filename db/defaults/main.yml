@@ -5,3 +5,4 @@ innodb_log_file_size: "120M"
 table_open_cache: 64
 table_open_cache_instances: 8
 mysql_secure_file_priv: "/var/lib/mysql-files"
+innodb_buffer_pool_instances: 2

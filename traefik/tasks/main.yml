@@ -4,7 +4,7 @@
     path: "{{ apps_config_dir }}/traefik"
     state: directory
     mode: 0755
-- name: copy mysql config
+- name: copy traefik config
   template:
     src: traefik.toml
     dest: "{{ apps_config_dir }}/traefik/traefik.toml"

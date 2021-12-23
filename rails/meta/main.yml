@@ -2,7 +2,6 @@
 galaxy_info:
   author: Gryphon
   description: Ruby on Rails server with rbenv, puma, nginx and nodejs
-  company: snsk.ru
   license: GNU
   min_ansible_version: 1.2
   platforms:

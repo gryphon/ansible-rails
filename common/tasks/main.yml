@@ -1,7 +1,13 @@
 ---
-- include_tasks: options.yml tags=options
-- include_tasks: soft.yml tags=soft
-- include_tasks: user.yml tags=user
-- include_tasks: monit.yml tags=monit
-- include_tasks: firewall.yml tags=firewall
-- include_tasks: cron.yml tags=cron
+#- include_tasks: options.yml
+#  tags: ['options']
+- include_tasks: soft.yml
+  tags: ['soft']
+- include_tasks: user.yml 
+  tags: ['user']
+- include_tasks: monit.yml 
+  tags: ['monit']
+- include_tasks: firewall.yml 
+  tags: ['firewall']
+- include_tasks: cron.yml 
+  tags: ['cron']

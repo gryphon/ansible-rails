@@ -1,22 +1,4 @@
 ---
-- name: 'install mysql server'
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - mysql-server-5.6
-    - mysql-client-5.6
-
-- name: 'install python-mysqldb'
-  apt: name=python-mysqldb state=present
-
-- name: 'create mysql user'
-  mysql_user: name={{ db_user }} password={{ db_password }} priv={{ db_name }}.*:ALL state=present
-
-- name: 'add user file priv'
-  mysql_user: name={{ db_user }} append_privs=true priv=*.*:FILE state=present
-
-- name: 'create mysql db'
-  mysql_db: name={{ db_name }} state=present encoding=utf8
-
 - name: copy mysql config
   template: src=my.cnf dest=/etc/mysql/my.cnf
   notify: restart mysql
